@@ -34,12 +34,20 @@ const articles = rawArticles
         >
           Software Engineer & Serial Builder
         </h2>
-        <p class="text-base mt-6 text-zinc-600 dark:text-zinc-400">
-          Hi, I'm Alfie – a software engineer with over 10 years of coding
-          experience. I've developed awesome open-source tools like PandaCI (a
-          TypeScript-based CI/CD platform), Pixeleye (a visual regression
-          testing tool), and Toggles.dev (a collection of dark theme ).
-        </p>
+
+        <span class="mt-6">
+          <Image
+            class="rounded-4xl mr-4 size-24 md:hidden mb-4 float-left"
+            src={ProfilePicture}
+            alt="Alfie Jones's profile picture"
+          />
+          <p class="text-basetext-zinc-600 dark:text-zinc-400">
+            Hi, I'm Alfie – a software engineer with over 10 years of coding
+            experience. I've developed awesome open-source tools like PandaCI (a
+            TypeScript-based CI/CD platform), Pixeleye (a visual regression
+            testing tool), and Toggles.dev (a collection of dark theme ).
+          </p>
+        </span>
         <div class="mt-6 flex gap-6">
           <!-- <SocialLink href="#" aria-label="Follow on X" icon={XIcon} /> -->
           <!-- <SocialLink -->
@@ -61,7 +69,7 @@ const articles = rawArticles
       </div>
 
       <Image
-        class="rounded-4xl size-64 mx-auto rotate-4"
+        class="rounded-4xl hidden md:block ml-4 size-64 size-24 mx-auto rotate-4"
         src={ProfilePicture}
         alt="Alfie Jones's profile picture"
       />
