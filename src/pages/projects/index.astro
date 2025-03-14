@@ -1,0 +1,111 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Container from "../../components/Container.astro";
+import { Icon } from "astro-icon/components";
+import PCVolumeMixerLogo from "../../assets/pc-volume-mixer.png";
+import PixeleyeLogo from "../../assets/pixeleye-logo.svg";
+import ThemeTogglesLogo from "../../assets/toggles-logo.svg";
+import PandaCILogo from "../../assets/pandaci-logo.png";
+import { Image } from "astro:assets";
+
+const projects = [
+  {
+    name: "PandaCI",
+    description:
+      "Platform to code your CI/CD workflows in TypeScript instead of YAML.",
+    link: { href: "https://pandaci.com", label: "pandaci.com" },
+    logo: PandaCILogo,
+  },
+  {
+    name: "Pixeleye",
+    description:
+      "The batteries-included platform for visually testing and reviewing your UI",
+    link: { href: "https://pixeleye.io/home", label: "pixeleye.io" },
+    logo: PixeleyeLogo,
+  },
+  {
+    name: "Theme toggles",
+    description:
+      "A collection of awesome, easy to use, animated dark/light toggles",
+    link: { href: "https://toggles.dev", label: "toggles.dev" },
+    logo: ThemeTogglesLogo,
+  },
+  {
+    name: "PC Volume mixer",
+    description:
+      "Android app and Windows client for remotley controling your volume mixer.",
+    link: { href: "https://firstbyte.app", label: "firstbyte.app" },
+    logo: PCVolumeMixerLogo,
+  },
+  {
+    name: "API typify",
+    description:
+      "Write APIs in TypeScript which compile to less than 400 bytes.",
+    link: {
+      href: "https://github.com/alfiejones/api-typify",
+      label: "github.com",
+    },
+    logo: "ph:brackets-curly",
+  },
+];
+---
+
+<Layout>
+  <Container class="mt-16">
+    <header class="max-w-2xl">
+      <h1
+        class="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100"
+      >
+        A few things I've made
+      </h1>
+      <p class="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+        I've built tons of projects over the years but here are the ones I'm
+        most proud of. Most of them are open-source so feel free to contribute.
+      </p>
+    </header>
+    <div class="mt-16 sm:mt-20">
+      <ul
+        role="list"
+        class="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
+      >
+        {
+          projects.map((project) => (
+            <li class="group relative flex flex-col items-start">
+              <div class="relative z-10 flex size-12 items-center justify-center rounded-full bg-white ring-1 shadow-md shadow-zinc-800/5 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
+                {project.logo && typeof project.logo === "string" && (
+                  <Icon
+                    class="size-full p-2 text-teal-600 dark:text-teal-400"
+                    name={project.logo}
+                  />
+                )}
+                {project.logo && typeof project.logo !== "string" && (
+                  <Image
+                    class="size-full text-teal-600 dark:text-teal-400"
+                    src={project.logo}
+                    alt={`${project.name} logo`}
+                  />
+                )}
+              </div>
+              <h2 class="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
+                <div class="absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 sm:rounded-2xl dark:bg-zinc-800/50" />
+                <a href={project.link.href}>
+                  <span class="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl" />
+                  <span class="relative z-10">{project.name}</span>
+                </a>
+              </h2>
+
+              <p class="relative z-10 mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+                {project.description}
+              </p>
+
+              <p class="relative z-10 mt-6 flex text-sm font-medium text-zinc-400 transition group-hover:text-teal-500 dark:text-zinc-200">
+                <Icon name="ph:link" class="size-6 flex-none" />
+                <span class="ml-2">{project.link.label}</span>
+              </p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </Container>
+</Layout>
