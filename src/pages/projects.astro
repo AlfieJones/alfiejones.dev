@@ -1,0 +1,106 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ProfilePicture from "../assets/Alfie_jones_new.jpg";
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+import PCVolumeMixerLogo from "../assets/pc-volume-mixer.png";
+import PixeleyeLogo from "../assets/pixeleye-logo.svg";
+import ThemeTogglesLogo from "../assets/toggles-logo.svg";
+import PandaCILogo from "../assets/pandaci-logo.png";
+import {
+  Table,
+  TableRow,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+} from "../components/table";
+
+const projects = [
+  {
+    name: "PandaCI",
+    description:
+      "Platform to code your CI/CD workflows in TypeScript instead of YAML.",
+    link: { href: "https://pandaci.com", label: "pandaci.com" },
+    logo: PandaCILogo,
+  },
+  {
+    name: "Pixeleye",
+    description:
+      "The batteries-included platform for visually testing and reviewing your UI.",
+    link: { href: "https://pixeleye.io/home", label: "pixeleye.io" },
+    logo: PixeleyeLogo,
+  },
+  {
+    name: "Theme toggles",
+    description:
+      "A collection of awesome, easy to use, animated dark/light toggles.",
+    link: { href: "https://toggles.dev", label: "toggles.dev" },
+    logo: ThemeTogglesLogo,
+  },
+  {
+    name: "PC Volume mixer",
+    description:
+      "Android app and Windows client for remotley controling your volume mixer.",
+    link: { href: "https://firstbyte.app", label: "firstbyte.app" },
+    logo: PCVolumeMixerLogo,
+  },
+  {
+    name: "API typify",
+    description:
+      "Write APIs in TypeScript which compile to less than 400 bytes.",
+    link: {
+      href: "https://github.com/alfiejones/api-typify",
+      label: "github.com",
+    },
+    logo: "ph:brackets-curly",
+  },
+];
+---
+
+<Layout>
+  <h1 class="text-2xl font-bold mb-2 dark:text-gray-100">Projects</h1>
+  <p class="text-zinc-700 dark:text-zinc-300 mb-8">
+    Just a few of the things I've made. Most are open source, so feel free to
+    check them out!
+  </p>
+
+  <Table>
+    <TableHead>
+      <TableRow>
+        {
+          ["Logo", "Name", "Description"].map((header) => (
+            <TableHeader scope="col">{header}</TableHeader>
+          ))
+        }
+      </TableRow>
+    </TableHead>
+    <TableBody>
+      {
+        projects.map(({ link: { href: link }, logo, description, name }) => (
+          <TableRow>
+            <TableCell class="" href={link}>
+              {logo && typeof logo === "string" && (
+                <Icon
+                  class="size-8 dark:text-white text-zinc-900 p-1"
+                  name={logo}
+                />
+              )}
+              {logo && typeof logo !== "string" && (
+                <Image class="size-8" src={logo} alt={`${name} logo`} />
+              )}
+            </TableCell>
+            <TableCell class="flex-col font-semibold" href={link}>
+              {name}
+              <br />
+              <span class="text-xs font-normal">{link}</span>
+            </TableCell>
+            <TableCell class="whitespace-pre-line" href={link}>
+              {description}
+            </TableCell>
+          </TableRow>
+        ))
+      }
+    </TableBody>
+  </Table>
+</Layout>

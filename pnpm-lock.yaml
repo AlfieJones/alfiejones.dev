@@ -11,6 +11,9 @@ importers:
       '@astrojs/markdoc':
         specifier: ^0.13.0
         version: 0.13.0(astro@5.5.2(@types/node@22.13.10)(jiti@2.4.2)(lightningcss@1.29.2)(rollup@4.35.0)(typescript@5.8.2))
+      '@fontsource/inter':
+        specifier: ^5.2.5
+        version: 5.2.5
       '@tailwindcss/vite':
         specifier: ^4.0.14
         version: 4.0.14(vite@6.2.2(@types/node@22.13.10)(jiti@2.4.2)(lightningcss@1.29.2))
@@ -33,6 +36,9 @@ importers:
       '@iconify-json/clarity':
         specifier: ^1.2.2
         version: 1.2.2
+      '@iconify-json/hugeicons':
+        specifier: ^1.2.4
+        version: 1.2.4
       '@iconify-json/ph':
         specifier: ^1.2.2
         version: 1.2.2
@@ -247,8 +253,14 @@ packages:
     cpu: [x64]
     os: [win32]
 
+  '@fontsource/inter@5.2.5':
+    resolution: {integrity: sha512-kbsPKj0S4p44JdYRFiW78Td8Ge2sBVxi/PIBwmih+RpSXUdvS9nbs1HIiuUSPtRMi14CqLEZ/fbk7dj7vni1Sg==}
+
   '@iconify-json/clarity@1.2.2':
     resolution: {integrity: sha512-ShZVAWkcI/OYQSBdGPYKjyCrT1ApACYrenPmWD8VJKY8KGip+tSe0qv1c8+Jsfou8Jx71XS7x+rJQC1ydRygIA==}
+
+  '@iconify-json/hugeicons@1.2.4':
+    resolution: {integrity: sha512-Rx1I42/wwqNiWx7rdQxtFWWOF1/DT1IMPrNReBVJiZe7NIdGT6Zv6Jw5gayqUtv7lDmE8eRmgd6MYRoVJrbuoA==}
 
   '@iconify-json/ph@1.2.2':
     resolution: {integrity: sha512-PgkEZNtqa8hBGjHXQa4pMwZa93hmfu8FUSjs/nv4oUU6yLsgv+gh9nu28Kqi8Fz9CCVu4hj1MZs9/60J57IzFw==}
@@ -2122,7 +2134,13 @@ snapshots:
   '@esbuild/win32-x64@0.25.1':
     optional: true
 
+  '@fontsource/inter@5.2.5': {}
+
   '@iconify-json/clarity@1.2.2':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/hugeicons@1.2.4':
     dependencies:
       '@iconify/types': 2.0.0
 

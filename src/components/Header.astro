@@ -1,0 +1,29 @@
+---
+import Toggle from "./Toggle.astro";
+---
+
+<header class="flex mb-5 md:mb-10 items-center w-full space-x-4">
+  <a
+    href="/"
+    class="text-md md:text-lg whitespace-nowrap pr-2 font-bold hover:bg-zinc-950/5 px-2 py-1 rounded-lg"
+  >
+    Alfie Jones
+  </a>
+  <nav class="ml-auto">
+    <ul class="flex space-x-4">
+      {
+        ["articles", "projects"].map((link) => (
+          <li>
+            <a
+              href={`/${link}`}
+              class="whitespace-nowrap hover:bg-zinc-950/5 px-2 py-1 rounded-lg text-sm"
+            >
+              {link.charAt(0).toUpperCase() + link.slice(1)}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+  <Toggle />
+</header>

@@ -1,44 +1,15 @@
 ---
-const links: { href: string; label: string }[] = [
-  {
-    href: "/",
-    label: "Home",
-  },
-  {
-    href: "/projects",
-    label: "Projects",
-  },
-  {
-    href: "/articles",
-    label: "Articles",
-  },
-];
+
 ---
 
-<footer class="mt-32 flex-none sm:px-8 mx-auto w-full max-w-7xl lg:px-8">
-  <div
-    class="border-t border-zinc-100 pt-10 pb-16 dark:border-zinc-700/40 relative px-4 sm:px-8 lg:px-12"
+<footer
+  class="mt-12 mb-8 flex text-sm border-t pt-4 dark:border-zinc-800 border-zinc-200"
+>
+  <p class="grow text-zinc-700 dark:text-zinc-300">Alfie Jones</p>
+  <a
+    href="https://github.com/alfiejones/alfiejones.dev"
+    class="text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200 text-sm underline"
   >
-    <div
-      class="flex flex-col items-center justify-between gap-6 md:flex-row mx-auto max-w-2xl lg:max-w-5xl"
-    >
-      <div
-        class="flex flex-wrap justify-center gap-x-6 gap-y-1 text-sm font-medium text-zinc-800 dark:text-zinc-200"
-      >
-        {
-          links.map(({ href, label }) => (
-            <a
-              href={href}
-              class="transition hover:text-teal-500 dark:hover:text-teal-400"
-            >
-              {label}
-            </a>
-          ))
-        }
-      </div>
-      <p class="text-sm text-zinc-400 dark:text-zinc-500">
-        &copy; {new Date().getFullYear()} Alfred Jones. All rights reserved.
-      </p>
-    </div>
-  </div>
+    Source
+  </a>
 </footer>

@@ -1,0 +1,30 @@
+---
+import clsx from "clsx";
+
+interface Props {
+  href?: string;
+  class?: string;
+}
+const { href, class: className } = Astro.props;
+---
+
+<td
+  class={clsx(
+    "text-sm font-medium whitespace-nowrap relative py-2",
+    href &&
+      "cursor-pointer group-hover:bg-zinc-100 dark:group-hover:bg-zinc-800",
+    className,
+  )}
+>
+  {
+    href && (
+      <a
+        href={href}
+        class="absolute inset-0 focus:outline-hidden hover:"
+        tabindex="-1"
+      />
+    )
+  }
+
+  <slot />
+</td>

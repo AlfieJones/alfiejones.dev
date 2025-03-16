@@ -1,133 +1,91 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Container from "../components/Container.astro";
 import ProfilePicture from "../assets/Alfie_jones_new.jpg";
 import { Image } from "astro:assets";
-import Newsletter from "../components/Newsletter.astro";
-import Resume from "../components/Resume.astro";
-import { getCollection } from "astro:content";
 import { Icon } from "astro-icon/components";
-
-const rawArticles = await getCollection("articles");
-
-const articles = rawArticles
-  .sort((a, b) => a.id.localeCompare(b.id))
-  .slice(0, 3)
-  .map((doc) => {
-    const id = doc.id.replace(/\d{2}-/, "").replace(".mdoc", "");
-
-    return {
-      title: doc.data.title,
-      description: doc.data.description,
-      created: new Date(doc.data.created).toLocaleDateString(),
-      id,
-    };
-  });
+import {
+  Table,
+  TableRow,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+} from "../components/table";
 ---
 
 <Layout>
-  <Container class="mt-12">
-    <div class="flex">
-      <div class="max-w-2xl">
-        <h2
-          class="text-4xl font-bold mb-8 tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100"
-        >
-          Software Engineer & Serial Builder
-        </h2>
+  <h1 class="text-2xl font-bold mb-4 dark:text-gray-100">Home</h1>
 
-        <span class="mt-6">
-          <Image
-            class="rounded-4xl mr-4 size-24 md:hidden mb-4 float-left"
-            src={ProfilePicture}
-            alt="Alfie Jones's profile picture"
-          />
-          <p class="text-basetext-zinc-600 dark:text-zinc-400">
-            Hi, I'm Alfie – a software engineer with over 10 years of coding
-            experience. I've developed awesome open-source tools like PandaCI (a
-            TypeScript-based CI/CD platform), Pixeleye (a visual regression
-            testing tool), and Toggles.dev (a collection of dark theme toggles).
-          </p>
-        </span>
-        <div class="mt-6 flex gap-6">
-          <!-- <SocialLink href="#" aria-label="Follow on X" icon={XIcon} /> -->
-          <!-- <SocialLink -->
-          <!--   href="#" -->
-          <!--   aria-label="Follow on Instagram" -->
-          <!--   icon={InstagramIcon} -->
-          <!-- /> -->
-          <!-- <SocialLink -->
-          <!--   href="#" -->
-          <!--   aria-label="Follow on GitHub" -->
-          <!--   icon={GitHubIcon} -->
-          <!-- /> -->
-          <!-- <SocialLink -->
-          <!--   href="#" -->
-          <!--   aria-label="Follow on LinkedIn" -->
-          <!--   icon={LinkedInIcon} -->
-          <!-- /> -->
-        </div>
-      </div>
+  <div class="prose dark:prose-invert prose-zinc max-w-none">
+    <Image
+      class="rounded-2xl ml-4 not-prose size-42 float-right"
+      src={ProfilePicture}
+      alt="Alfie Jones's profile picture"
+    />
 
-      <Image
-        class="rounded-4xl hidden md:block ml-4 size-64 size-24 mx-auto rotate-4"
-        src={ProfilePicture}
-        alt="Alfie Jones's profile picture"
-      />
-    </div>
-  </Container>
+    <p>
+      I’m a software engineer and serial builder. I've been coding for over 10
+      years and have worked on a variety of projects, from small websites to
+      large-scale applications.
+    </p>
 
-  <Container class="mt-24 md:mt-28">
-    <div
-      class="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2"
-    >
-      <div class="flex flex-col gap-16">
+    <p>
+      I hold a Master's in Computer Science and Mathematics from the University
+      of Bath (UK). For my undergraduate dissertation, I developed a
+      Bluetooth-based tracking system. My Master's research focused on using
+      network mocking to ensure consistent visual testing with dynamic data.
+    </p>
+  </div>
+
+  <h2 class="text-xl font-semibold mb-4 mt-12 dark:text-gray-100">Links</h2>
+
+  <Table>
+    <TableHead>
+      <TableRow>
         {
-          articles.map((article) => (
-            <div class="group relative flex flex-col items-start md:col-span-3">
-              <h2 class="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">
-                <div class="absolute -inset-x-4 -inset-y-6 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 sm:-inset-x-6 sm:rounded-2xl dark:bg-zinc-800/50" />
-                <a href={`/articles/${article.id}`}>
-                  <span class="absolute -inset-x-4 -inset-y-6 z-20 sm:-inset-x-6 sm:rounded-2xl" />
-                  <span class="relative z-10">{article.title}</span>
-                </a>
-              </h2>
-
-              <time
-                class="relative z-10 order-first mb-3 flex items-center text-sm text-zinc-400 dark:text-zinc-500 pl-3.5"
-                date-time={article.created}
-              >
-                <span
-                  class="absolute inset-y-0 left-0 flex items-center"
-                  aria-hidden="true"
-                >
-                  <span class="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500" />
-                </span>
-                {article.created}
-              </time>
-              <p class="relative z-10 mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-                {article.description}
-              </p>
-              <div
-                aria-hidden="true"
-                class="relative z-10 mt-4 flex items-center text-sm font-medium text-teal-500"
-              >
-                <span>Read article</span>
-                <Icon
-                  name="ph:caret-right"
-                  class="ml-1 h-4 w-4 stroke-current"
-                />
-              </div>
-            </div>
+          ["Logo", "Name", "Link"].map((header) => (
+            <TableHeader scope="col">{header}</TableHeader>
           ))
         }
-        <!-- {articles.map((article) => ( -->
-        <!--   <Article key={article.slug} article={article} /> -->
-        <!-- ))} -->
-      </div>
-      <div class="space-y-10 lg:pl-16 xl:pl-24">
-        <Newsletter />
-        <!-- <Resume /> -->
-      </div>
-    </div>
-  </Container>
+      </TableRow>
+    </TableHead>
+    <TableBody>
+      {
+        [
+          {
+            logo: "ph:github-logo",
+            name: "Github",
+            link: "https://github.com/alfiejones",
+          },
+          {
+            logo: "hugeicons:bluesky",
+            name: "BlueSky",
+            link: "https://bsky.app/profile/alfie-jones.bsky.social",
+          },
+          {
+            logo: "ph:twitter-logo",
+            name: "Twitter",
+            link: "https://x.com/_AlfredoJones",
+          },
+          {
+            logo: "ph:linkedin-logo",
+            name: "LinkedIn",
+            link: "https://linkedin.com/in/armj",
+          },
+        ].map(({ logo, name, link }) => (
+          <TableRow>
+            <TableCell class="" href={link}>
+              <Icon name={logo} class="size-6 " />
+            </TableCell>
+            <TableCell class="" href={link}>
+              {name}
+            </TableCell>
+            <TableCell class="" href={link}>
+              {link}
+            </TableCell>
+          </TableRow>
+        ))
+      }
+    </TableBody>
+  </Table>
 </Layout>
