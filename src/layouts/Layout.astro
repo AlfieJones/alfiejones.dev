@@ -4,6 +4,13 @@ import "@fontsource/inter";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Toggle from "../components/Toggle.astro";
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
 ---
 
 <!doctype html>
@@ -11,9 +18,12 @@ import Toggle from "../components/Toggle.astro";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Alfie Jones</title>
+    <title>
+      {title} | Alfie Jones - Web developer and creator
+    </title>
+    <meta name="description" content={description} />
   </head>
   <body
     class="dark:text-zinc-100 text-zinc-950 p-4 pt-3 md:pt-6 bg-zinc-50 dark:bg-zinc-900"
