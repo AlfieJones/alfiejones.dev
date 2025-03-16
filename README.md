@@ -1,3 +1,3 @@
 # My Portfolio
 
-[alfiejones.dev[(https://alfiejones.dev)
+[alfiejones.dev](https://alfiejones.dev)
