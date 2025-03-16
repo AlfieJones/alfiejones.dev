@@ -17,11 +17,11 @@ import {
   title="Home"
   description="I’m a software engineer and serial builder. I've been coding for over 10 years and have worked on a variety of projects, from small websites to large-scale applications."
 >
-  <h1 class="text-2xl font-bold mb-4 dark:text-gray-100">Home</h1>
+  <h1 class="mb-4 text-2xl font-bold dark:text-gray-100">Home</h1>
 
   <div class="prose dark:prose-invert prose-zinc max-w-none">
     <Image
-      class="rounded-2xl ml-4 not-prose size-42 float-right"
+      class="not-prose float-right ml-4 size-42 rounded-2xl"
       src={ProfilePicture}
       alt="Alfie Jones's profile picture"
     />
@@ -40,7 +40,7 @@ import {
     </p>
   </div>
 
-  <h2 class="text-xl font-semibold mb-4 mt-12 dark:text-gray-100">Links</h2>
+  <h2 class="mt-12 mb-4 text-xl font-semibold dark:text-gray-100">Links</h2>
 
   <Table>
     <TableHead>
@@ -78,7 +78,7 @@ import {
         ].map(({ logo, name, link }) => (
           <TableRow>
             <TableCell class="" href={link}>
-              <Icon name={logo} class="size-6 " />
+              <Icon name={logo} class="size-6" />
             </TableCell>
             <TableCell class="" href={link}>
               {name}

@@ -2,10 +2,10 @@
 import Toggle from "./Toggle.astro";
 ---
 
-<header class="flex mb-5 md:mb-10 items-center w-full space-x-4">
+<header class="mb-5 flex w-full items-center space-x-4 md:mb-10">
   <a
     href="/"
-    class="text-md md:text-lg whitespace-nowrap pr-2 font-bold hover:bg-zinc-950/5 dark:hover:bg-zinc-50/5 px-2 py-1 rounded-lg"
+    class="text-md rounded-lg px-2 py-1 pr-2 font-bold whitespace-nowrap hover:bg-zinc-950/5 md:text-lg dark:hover:bg-zinc-50/5"
   >
     Alfie Jones
   </a>
@@ -16,7 +16,7 @@ import Toggle from "./Toggle.astro";
           <li>
             <a
               href={`/${link}`}
-              class="whitespace-nowrap hover:bg-zinc-950/5 dark:hover:bg-zinc-50/5 px-2 py-1 rounded-lg text-sm"
+              class="rounded-lg px-2 py-1 text-sm whitespace-nowrap hover:bg-zinc-950/5 dark:hover:bg-zinc-50/5"
             >
               {link.charAt(0).toUpperCase() + link.slice(1)}
             </a>
