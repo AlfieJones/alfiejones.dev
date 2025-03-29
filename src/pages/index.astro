@@ -59,23 +59,27 @@ import {
             logo: "ph:github-logo",
             name: "Github",
             link: "https://github.com/alfiejones",
+            mobileLinkText: "alfiejones",
           },
           {
             logo: "hugeicons:bluesky",
             name: "BlueSky",
             link: "https://bsky.app/profile/alfie-jones.bsky.social",
+            mobileLinkText: "alfie-jones.bsky.social",
           },
           {
             logo: "ph:twitter-logo",
             name: "Twitter",
             link: "https://x.com/_AlfredoJones",
+            mobileLinkText: "_AlfredoJones",
           },
           {
             logo: "ph:linkedin-logo",
             name: "LinkedIn",
             link: "https://linkedin.com/in/armj",
+            mobileLinkText: "armj",
           },
-        ].map(({ logo, name, link }) => (
+        ].map(({ logo, name, link, mobileLinkText }) => (
           <TableRow>
             <TableCell class="" href={link}>
               <Icon name={logo} class="size-6" />
@@ -84,7 +88,8 @@ import {
               {name}
             </TableCell>
             <TableCell class="" href={link}>
-              {link}
+              <span class="hidden sm:block">{link}</span>
+              <span class="sm:hidden">{mobileLinkText}</span>
             </TableCell>
           </TableRow>
         ))

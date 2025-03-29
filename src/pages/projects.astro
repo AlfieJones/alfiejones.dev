@@ -19,36 +19,32 @@ import {
 const projects = [
   {
     name: "PandaCI",
-    description:
-      "Platform to code your CI/CD workflows in TypeScript instead of YAML.",
+    description: "Platform to code your CI/CD in TypeScript.",
     link: { href: "https://pandaci.com", label: "pandaci.com" },
     logo: PandaCILogo,
   },
   {
     name: "Pixeleye",
     description:
-      "The batteries-included platform for visually testing and reviewing your UI.",
+      "Visual regression testing platform with multiple integrations.",
     link: { href: "https://pixeleye.io/home", label: "pixeleye.io" },
     logo: PixeleyeLogo,
   },
   {
     name: "Theme toggles",
-    description:
-      "A collection of awesome, easy to use, animated dark/light toggles.",
+    description: "A collection of easy to use animated dark/light toggles.",
     link: { href: "https://toggles.dev", label: "toggles.dev" },
     logo: ThemeTogglesLogo,
   },
   {
     name: "PC Volume mixer",
-    description:
-      "Android app and Windows client for remotley controling your volume mixer.",
+    description: "Android remote for the Windows volume mixer.",
     link: { href: "https://firstbyte.app", label: "firstbyte.app" },
     logo: PCVolumeMixerLogo,
   },
   {
     name: "API typify",
-    description:
-      "Write APIs in TypeScript which compile to less than 400 bytes.",
+    description: "Framework for building type-safe APIs in TypeScript.",
     link: {
       href: "https://github.com/alfiejones/api-typify",
       label: "github.com",
@@ -80,29 +76,34 @@ const projects = [
     </TableHead>
     <TableBody>
       {
-        projects.map(({ link: { href: link }, logo, description, name }) => (
-          <TableRow>
-            <TableCell class="" href={link}>
-              {logo && typeof logo === "string" && (
-                <Icon
-                  class="size-8 p-1 text-zinc-900 dark:text-white"
-                  name={logo}
-                />
-              )}
-              {logo && typeof logo !== "string" && (
-                <Image class="size-8" src={logo} alt={`${name} logo`} />
-              )}
-            </TableCell>
-            <TableCell class="flex-col font-semibold" href={link}>
-              {name}
-              <br />
-              <span class="text-xs font-normal">{link}</span>
-            </TableCell>
-            <TableCell class="whitespace-pre-line" href={link}>
-              {description}
-            </TableCell>
-          </TableRow>
-        ))
+        projects.map(
+          ({ link: { href: link, label }, logo, description, name }) => (
+            <TableRow>
+              <TableCell class="" href={link}>
+                {logo && typeof logo === "string" && (
+                  <Icon
+                    class="size-8 p-1 text-zinc-900 dark:text-white"
+                    name={logo}
+                  />
+                )}
+                {logo && typeof logo !== "string" && (
+                  <Image class="size-8" src={logo} alt={`${name} logo`} />
+                )}
+              </TableCell>
+              <TableCell
+                class="max-w-24 flex-col text-sm font-semibold whitespace-pre-line sm:max-w-none sm:text-base"
+                href={link}
+              >
+                {name}
+                <br />
+                <span class="text-xs font-normal">{label}</span>
+              </TableCell>
+              <TableCell class="whitespace-pre-line" href={link}>
+                {description}
+              </TableCell>
+            </TableRow>
+          ),
+        )
       }
     </TableBody>
   </Table>
