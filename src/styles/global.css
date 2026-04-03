@@ -3,6 +3,46 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* Custom prose styles for retro theme */
+.prose {
+  --tw-prose-body: var(--color-retro-700);
+  --tw-prose-headings: var(--color-retro-950);
+  --tw-prose-links: var(--color-accent-orange);
+  --tw-prose-bold: var(--color-retro-900);
+  --tw-prose-code: var(--color-retro-800);
+  --tw-prose-quotes: var(--color-retro-600);
+}
+
+.prose.dark {
+  --tw-prose-body: var(--color-accent-amber);
+  --tw-prose-headings: var(--color-accent-glow);
+  --tw-prose-links: var(--color-accent-orange);
+  --tw-prose-bold: var(--color-accent-glow);
+  --tw-prose-code: var(--color-accent-amber);
+  --tw-prose-quotes: var(--color-retro-400);
+}
+
 @theme {
   --font-sans: "Inter", "sans-serif";
+
+  /* Retro Color Palette */
+  --color-retro-50: #faf4e8;
+  --color-retro-100: #f5ede0;
+  --color-retro-200: #e8d9c0;
+  --color-retro-300: #d4c5a9;
+  --color-retro-400: #a68868;
+  --color-retro-500: #8a7050;
+  --color-retro-600: #6b5644;
+  --color-retro-700: #4a3f35;
+  --color-retro-800: #3f3224;
+  --color-retro-900: #2d2318;
+  --color-retro-950: #1a1410;
+
+  /* Retro accent colors */
+  --color-accent-orange: #ff6b35;
+  --color-accent-teal: #4ecdc4;
+  --color-accent-purple: #a44a9a;
+  --color-accent-yellow: #f7b731;
+  --color-accent-amber: #d4a574;
+  --color-accent-glow: #ffb380;
 }

@@ -32,12 +32,12 @@ const { Content } = await render(doc);
 <Layout title={doc.data.title} description={doc.data.description}>
   <article clsas="prose">
     <header class="not-prose mb-8 flex flex-col">
-      <h1 class="mb-1 text-2xl font-bold dark:text-gray-100">
+      <h1 class="mb-1 text-2xl font-bold dark:text-accent-glow">
         {doc.data.title}
       </h1>
       <time
         date-time={doc.data.created}
-        class="flex items-center text-xs text-zinc-600 dark:text-zinc-400"
+        class="flex items-center text-xs text-retro-600 dark:text-retro-400"
       >
         {new Date(doc.data.created).toLocaleDateString()}
       </time>
