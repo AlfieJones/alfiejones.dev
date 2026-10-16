@@ -18,6 +18,13 @@ import {
 
 const projects = [
   {
+    name: "AccessLayer",
+    description:
+      "Connect your tools, build dashboards, and trigger actions with AI.",
+    link: { href: "https://accesslayer.ai", label: "accesslayer.ai" },
+    logo: "ph:stack",
+  },
+  {
     name: "PandaCI",
     description: "Platform to code your CI/CD in TypeScript.",
     link: { href: "https://pandaci.com", label: "pandaci.com" },
@@ -67,44 +74,40 @@ const projects = [
   <Table>
     <TableHead>
       <TableRow>
-        {
-          ["Logo", "Name", "Description"].map((header) => (
-            <TableHeader scope="col">{header}</TableHeader>
-          ))
-        }
+        {["Logo", "Name", "Description"].map((header) => (
+          <TableHeader scope="col">{header}</TableHeader>
+        ))}
       </TableRow>
     </TableHead>
     <TableBody>
-      {
-        projects.map(
-          ({ link: { href: link, label }, logo, description, name }) => (
-            <TableRow>
-              <TableCell class="" href={link}>
-                {logo && typeof logo === "string" && (
-                  <Icon
-                    class="size-8 p-1 text-zinc-900 dark:text-white"
-                    name={logo}
-                  />
-                )}
-                {logo && typeof logo !== "string" && (
-                  <Image class="size-8" src={logo} alt={`${name} logo`} />
-                )}
-              </TableCell>
-              <TableCell
-                class="max-w-24 flex-col text-sm font-semibold whitespace-pre-line sm:max-w-none sm:text-base"
-                href={link}
-              >
-                {name}
-                <br />
-                <span class="text-xs font-normal">{label}</span>
-              </TableCell>
-              <TableCell class="whitespace-pre-line" href={link}>
-                {description}
-              </TableCell>
-            </TableRow>
-          ),
-        )
-      }
+      {projects.map(
+        ({ link: { href: link, label }, logo, description, name }) => (
+          <TableRow>
+            <TableCell class="" href={link}>
+              {logo && typeof logo === "string" && (
+                <Icon
+                  class="size-8 p-1 text-zinc-900 dark:text-white"
+                  name={logo}
+                />
+              )}
+              {logo && typeof logo !== "string" && (
+                <Image class="size-8" src={logo} alt={`${name} logo`} />
+              )}
+            </TableCell>
+            <TableCell
+              class="max-w-24 flex-col text-sm font-semibold whitespace-pre-line sm:max-w-none sm:text-base"
+              href={link}
+            >
+              {name}
+              <br />
+              <span class="text-xs font-normal">{label}</span>
+            </TableCell>
+            <TableCell class="whitespace-pre-line" href={link}>
+              {description}
+            </TableCell>
+          </TableRow>
+        ),
+      )}
     </TableBody>
   </Table>
 </Layout>
