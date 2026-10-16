@@ -15,11 +15,11 @@ import {
 
 <Layout
   title="Home"
-  description="I’m a software engineer and serial builder. I've been coding for over 10 years and have worked on a variety of projects, from small websites to large-scale applications."
+  description="I’m a software engineer and startup co-founder building developer tools and AI infrastructure."
 >
   <h1 class="mb-4 text-2xl font-bold dark:text-gray-100">Home</h1>
 
-  <div class="prose dark:prose-invert prose-zinc max-w-none">
+  <div class="prose dark:prose-invert prose-zinc flow-root max-w-none">
     <Image
       class="not-prose float-right ml-4 size-42 rounded-2xl"
       src={ProfilePicture}
@@ -27,16 +27,10 @@ import {
     />
 
     <p>
-      I’m a software engineer and serial builder. I've been coding for over 10
-      years and have worked on a variety of projects, from small websites to
-      large-scale applications.
-    </p>
-
-    <p>
-      I hold a Master's in Computer Science and Mathematics from the University
-      of Bath (UK). For my undergraduate dissertation, I developed a
-      Bluetooth-based tracking system. My Master's research focused on using
-      network mocking to ensure consistent visual testing with dynamic data.
+      I’m a software engineer and startup co-founder building developer tools
+      and AI infrastructure. I’m always working on new projects and exploring
+      new ideas. I hold a Master’s in Computer Science and Mathematics from the
+      University of Bath.
     </p>
   </div>
 
@@ -45,55 +39,51 @@ import {
   <Table>
     <TableHead>
       <TableRow>
-        {
-          ["Logo", "Name", "Link"].map((header) => (
-            <TableHeader scope="col">{header}</TableHeader>
-          ))
-        }
+        {["Logo", "Name", "Link"].map((header) => (
+          <TableHeader scope="col">{header}</TableHeader>
+        ))}
       </TableRow>
     </TableHead>
     <TableBody>
-      {
-        [
-          {
-            logo: "ph:github-logo",
-            name: "Github",
-            link: "https://github.com/alfiejones",
-            mobileLinkText: "alfiejones",
-          },
-          {
-            logo: "hugeicons:bluesky",
-            name: "BlueSky",
-            link: "https://bsky.app/profile/alfie-jones.bsky.social",
-            mobileLinkText: "alfie-jones.bsky.social",
-          },
-          {
-            logo: "ph:twitter-logo",
-            name: "Twitter",
-            link: "https://x.com/_AlfredoJones",
-            mobileLinkText: "_AlfredoJones",
-          },
-          {
-            logo: "ph:linkedin-logo",
-            name: "LinkedIn",
-            link: "https://linkedin.com/in/armj",
-            mobileLinkText: "armj",
-          },
-        ].map(({ logo, name, link, mobileLinkText }) => (
-          <TableRow>
-            <TableCell class="" href={link}>
-              <Icon name={logo} class="size-6" />
-            </TableCell>
-            <TableCell class="" href={link}>
-              {name}
-            </TableCell>
-            <TableCell class="" href={link}>
-              <span class="hidden sm:block">{link}</span>
-              <span class="sm:hidden">{mobileLinkText}</span>
-            </TableCell>
-          </TableRow>
-        ))
-      }
+      {[
+        {
+          logo: "ph:github-logo",
+          name: "Github",
+          link: "https://github.com/alfiejones",
+          mobileLinkText: "alfiejones",
+        },
+        {
+          logo: "hugeicons:bluesky",
+          name: "BlueSky",
+          link: "https://bsky.app/profile/alfie-jones.bsky.social",
+          mobileLinkText: "alfie-jones.bsky.social",
+        },
+        {
+          logo: "ph:twitter-logo",
+          name: "Twitter",
+          link: "https://x.com/_AlfredoJones",
+          mobileLinkText: "_AlfredoJones",
+        },
+        {
+          logo: "ph:linkedin-logo",
+          name: "LinkedIn",
+          link: "https://linkedin.com/in/armj",
+          mobileLinkText: "armj",
+        },
+      ].map(({ logo, name, link, mobileLinkText }) => (
+        <TableRow>
+          <TableCell class="" href={link}>
+            <Icon name={logo} class="size-6" />
+          </TableCell>
+          <TableCell class="" href={link}>
+            {name}
+          </TableCell>
+          <TableCell class="" href={link}>
+            <span class="hidden sm:block">{link}</span>
+            <span class="sm:hidden">{mobileLinkText}</span>
+          </TableCell>
+        </TableRow>
+      ))}
     </TableBody>
   </Table>
 </Layout>
