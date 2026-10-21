@@ -1,0 +1,20 @@
+src/pages/projects.astro
+  s_1d98b63b74155e::t_0b3c3fc9ae237b 21-26
+  s_1d98b63b74155e::t_e6df8fd71421d5 20
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "4707a39f6016ac5f5309c8caa0b267068874ebea",
+  "prompts": {},
+  "sessions": {
+    "s_1d98b63b74155e": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a15c2e-22a5-77d3-95be-f3408858fdb6",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "Alfie Jones <alfie.jones@hotmail.co.uk>"
+    }
+  }
+}
